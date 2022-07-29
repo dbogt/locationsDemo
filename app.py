@@ -5,7 +5,7 @@ from streamlit_folium import st_folium
 
 df1 = pd.read_csv('locations1.csv')
 
-@st.cahce
+@st.cache
 def drawMap():
   m = folium.Map(location=[56.0659, -118.3917], zoom_start=16)
   for index, location_info in df1.iterrows():
