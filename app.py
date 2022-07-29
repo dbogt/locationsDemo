@@ -4,7 +4,7 @@ import streamlit as st
 from streamlit_folium import st_folium
 
 df1 = pd.read_csv('locations1.csv')
-
+df2 = pd.read_csv('locations2.csv')
 @st.cache
 def drawMap():
   m = folium.Map(location=[56.0659, -118.3917], zoom_start=16)
