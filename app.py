@@ -39,10 +39,10 @@ station = st.selectbox("Pick a gas station to analyze", sorted(df2['address'].un
 pickedLat = df2[df2['address']==station]['latitude']
 pickedLong = df2[df2['address']==station]['longitude']
 city = df2[df2['address']==station]['city']
-st.write("Station: {}".station)
-st.write("City: {}".city)
-st.write("Latitude: {}".pickedLat)
-st.write("Longitude: {}".pickedLong)
+# st.write("Station: {}".format(station))
+# st.write("City: {}".format(city))
+# st.write("Latitude: {}".pickedLat)
+# st.write("Longitude: {}".pickedLong)
 st.write(df2[df2['address']==station].T)
 
 # call to render Folium map in Streamlit
