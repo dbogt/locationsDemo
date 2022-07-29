@@ -9,7 +9,7 @@ def grabDF1():
   return df
 
 @st.cache
-def grabDF1():
+def grabDF2():
   df = pd.read_csv('locations2.csv')
   return df
 
