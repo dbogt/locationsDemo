@@ -3,9 +3,19 @@ import pandas as pd
 import streamlit as st
 from streamlit_folium import st_folium
 
-df1 = pd.read_csv('locations1.csv')
-df2 = pd.read_csv('locations2.csv')
 @st.cache
+def grabDF1():
+  df = pd.read_csv('locations1.csv')
+  return df
+
+@st.cache
+def grabDF1():
+  df = pd.read_csv('locations2.csv')
+  return df
+
+df1 = grabDF1()
+df2 = grabDF2()
+
 def drawMap(df1, df2):
   m = folium.Map(location=[56.0659, -118.3917], zoom_start=16)
   for index, location_info in df1.iterrows():
