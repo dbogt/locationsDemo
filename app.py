@@ -43,7 +43,7 @@ city = df2[df2['address']==station]['city']
 # st.write("City: {}".format(city))
 # st.write("Latitude: {}".pickedLat)
 # st.write("Longitude: {}".pickedLong)
-st.write(df2[df2['address']==station].T)
+st.write(df2[df2['address']==station])
 
 # call to render Folium map in Streamlit
 st_data = st_folium(m, width = 800)
