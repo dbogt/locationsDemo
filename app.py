@@ -17,7 +17,7 @@ df1 = grabDF1()
 df2 = grabDF2()
 
 def drawMap(df1, df2, lat, long, radiusM):
-  m = folium.Map(location=[lat, long], zoom_start=6)
+  m = folium.Map(location=[lat, long], zoom_start=10)
   for index, location_info in df1.iterrows():
     folium.Marker([location_info["lat"], location_info["lng"]], popup=location_info["name"], icon=folium.Icon(color="red")).add_to(m)
   for index, location_info in df2.iterrows():
