@@ -38,7 +38,7 @@ st.title("Gas Station Locations")
 station = st.selectbox("Pick a gas station to analyze", sorted(df2['address'].unique()))
 pickedLat = df2[df2['address']==station]['latitude']
 pickedLong = df2[df2['address']==station]['longitude']
-city = df2[df2['address']=station]['city']
+city = df2[df2['address']==station]['city']
 st.write("Station: {}".station)
 st.write("City: {}".city)
 st.write("Latitude: {}".pickedLat)
