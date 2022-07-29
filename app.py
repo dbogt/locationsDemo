@@ -16,8 +16,8 @@ def grabDF2():
 df1 = grabDF1()
 df2 = grabDF2()
 
-def drawMap(df1, df2, lat, long):
-  m = folium.Map(location=[lat, long], zoom_start=15)
+def drawMap(df1, df2, lat, long, radiusM):
+  m = folium.Map(location=[lat, long], zoom_start=6)
   for index, location_info in df1.iterrows():
     folium.Marker([location_info["lat"], location_info["lng"]], popup=location_info["name"], icon=folium.Icon(color="red")).add_to(m)
   for index, location_info in df2.iterrows():
@@ -29,7 +29,7 @@ def drawMap(df1, df2, lat, long):
     folium.Marker([location_info["latitude"], location_info["longitude"]], popup=pop, icon=folium.Icon(color="blue")).add_to(m)
 
   folium.Circle(
-    radius=5000,
+    radius=radiusM,
     location=[lat, long],
     popup="The Waterfront",
     color="crimson",
@@ -43,9 +43,10 @@ def drawMap(df1, df2, lat, long):
 st.title("Gas Station Locations")
 
 station = st.selectbox("Pick a gas station to analyze", sorted(df2['address'].unique()))
+number = st.number_input('Insert a radius (m)', value=1000)
 pickedLat = df2[df2['address']==station]['latitude']
 pickedLong = df2[df2['address']==station]['longitude']
-m = drawMap(df1, df2, pickedLat, pickedLong)
+m = drawMap(df1, df2, pickedLat, pickedLong, number)
 city = df2[df2['address']==station]['city']
 # st.write("Station: {}".format(station))
 # st.write("City: {}".format(city))
