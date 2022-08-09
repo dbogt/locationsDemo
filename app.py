@@ -72,8 +72,8 @@ station2 = st.selectbox("Pick a second gas station to analyze", sorted(df2['addr
 number = st.number_input('Insert a radius (m)', value=1000)
 pickedLat = float(df2[df2['address']==station]['latitude'])
 pickedLong = float(df2[df2['address']==station]['longitude'])
-pickedLat2 = df2[df2['address']==station2]['latitude']
-pickedLong2 = df2[df2['address']==station2]['longitude']
+pickedLat2 = float(df2[df2['address']==station2]['latitude'])
+pickedLong2 = float(df2[df2['address']==station2]['longitude'])
 
 m = drawMap(df1, df2, pickedLat, pickedLong, number)
 city = df2[df2['address']==station]['city']
