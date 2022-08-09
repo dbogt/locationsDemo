@@ -5,6 +5,36 @@ import streamlit as st
 from streamlit_folium import st_folium
 from math import pi, acos, sin, cos, sqrt, atan2, radians
 
+#%% Streamlit Controls
+st.set_page_config(layout="wide",page_title='Locations Finder',
+menu_items={
+        "About": f"Locations Finder"
+        f"\nApp contact: [Bogdan Tudose](mailto:bogdan.tudose@marqueegroup.ca)",
+        "Report a Bug": "https://github.com/dbogt/locationsDemo/issues/",
+    })
+
+
+#%% App Details
+appDetails = """
+Created by: [Bogdan Tudose](https://www.linkedin.com/in/tudosebogdan/) \n
+Date: August 9, 2022 \n
+Purpose: Compare gas station locations of two different companies (Couche-Tard and Shell) \n
+This app is a demo of how Python could be used to augment a ficticious M&A deal:
+- If Couche-Tard and Shell were to merge, the investment banking analyts working on the deal would try to find gas stations of the competing brands that are close to each other
+- Gas stations close in proximity are potential targets for closures to create cost synergies 
+
+How to use the app:
+- Pick a Couche-Tard and Shell gas station (use the defaults as a starting point)
+- The app will first calculate the distance in km between the 2 picked locations
+- Pick which of the two stations to analyze and the radius proximity (in metres, default set to 2.5km)
+- The app will then plot a radius of the chosen distance and filter out all the gas stations within that radius
+
+Short link: https://bit.ly/locationsDemo
+"""
+with st.expander("See app info"):
+    st.write(appDetails)
+
+
 #%% Functions
 #Grabbing Data
 @st.cache
