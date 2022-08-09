@@ -13,7 +13,6 @@ menu_items={
         "Report a Bug": "https://github.com/dbogt/locationsDemo/issues/",
     })
 
-
 #%% App Details
 appDetails = """
 Created by: [Bogdan Tudose](https://www.linkedin.com/in/tudosebogdan/) \n
@@ -22,7 +21,6 @@ Purpose: Compare gas station locations of two different companies (Couche-Tard a
 This app is a demo of how Python could be used to augment a ficticious M&A deal:
 - If Couche-Tard and Shell were to merge, the investment banking analyts working on the deal would try to find gas stations of the competing brands that are close to each other
 - Gas stations close in proximity are potential targets for closures to create cost synergies 
-
 
 How to use the app:
 - Pick a Couche-Tard and Shell gas station (use the defaults as a starting point)
@@ -36,7 +34,6 @@ Short link: https://bit.ly/locationsDemo
 """
 with st.expander("See app info"):
     st.write(appDetails)
-
 
 #%% Functions
 #Grabbing Data
@@ -61,8 +58,7 @@ def drawMap(df1, df2, lat, long, radiusM):
   #Plot Shell Canada
   for index, location_info in df1.iterrows():
     pop = """<b>Shell Canada</b></br>
-    {}
-    """.format(location_info["name"])
+    {}""".format(location_info["name"])
     folium.Marker([location_info["lat"], location_info["lng"]], popup=pop, icon=folium.Icon(color="red")).add_to(m)
   
   #Plot Couche-Tard
@@ -70,8 +66,7 @@ def drawMap(df1, df2, lat, long, radiusM):
     city =location_info['city']
     address =location_info['address']
     pop = """<b>Couche-Tard</b></br>
-    {}
-    """.format(address)
+    {}""".format(address)
     folium.Marker([location_info["latitude"], location_info["longitude"]], popup=pop, icon=folium.Icon(color="blue")).add_to(m)
 
   #Plot Radius
@@ -80,9 +75,7 @@ def drawMap(df1, df2, lat, long, radiusM):
     location=[lat, long],
     popup="{} m radius".format(radiusM),
     color="crimson",
-    fill=False,
-).add_to(m)
-
+    fill=False).add_to(m)
   return m
 
 #Distance Calculations
@@ -99,6 +92,7 @@ def distCoordKM(lat1, lon1, lat2, lon2):
   distKM = distCoord(lat1, lon1, lat2, lon2) * 1.852
   return distKM
 
+#%% Streamlit App
 st.title("Gas Station Locations")
 
 cLocs = list(df2['address'].unique()) #list of couche-tard locations
@@ -143,18 +137,15 @@ df1 = df1[cols]
 cols2 = ['Distance KM'] + list(df2.columns[0:-1])
 df2 = df2[cols2]
 
-
 radiusKM = radius / 1000
 st.write("Couche-Tard locations within radius:")
 st.write(df2[df2['Distance KM']<=radiusKM])
 st.write("Shell locations within radius:")
 st.write(df1[df1['Distance KM']<=radiusKM])
 
-m = drawMap(df1, df2, lat, lon, radius)
-
-
 st.write("Blue markers are Couche-Tard gas stations and red markers are Shell gas stations.")
 # call to render Folium map in Streamlit
+m = drawMap(df1, df2, lat, lon, radius)
 st_data = st_folium(m, width = 800)
 
 st.header("All Shell Locations")
