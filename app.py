@@ -79,19 +79,17 @@ m = drawMap(df1, df2, pickedLat, pickedLong, number)
 city = df2[df2['address']==station]['city']
 # st.write("Station: {}".format(station))
 # st.write("City: {}".format(city))
-st.write(pickedLat)
-st.write(pickedLong)
 
 st.write(df2[df2['address']==station])
 st.write(df2[df2['address']==station2])
-st.write("""Couche-Tarde Gas Station: {}</br>
-            Lat: {}</br>
+st.write("""Couche-Tarde Gas Station: {}  \n
+            Lat: {}  \n
             Lon: {}""".format(station, pickedLat, pickedLong))
-st.write("""Shell Gas Station: {}</br>
-            Lat: {}</br>
+st.write("""Shell Gas Station: {}  \n
+            Lat: {}  \n
             Lon: {}""".format(station2, pickedLat2, pickedLong2))
 distKM = distCoordKM(pickedLat, pickedLong, pickedLat2, pickedLong2)
-st.write("Distance between gas stations in KM: *{:,.2f}*".format(distKM))
+st.write("Distance between gas stations in KM: **{:,.2f}**".format(distKM))
 
 # call to render Folium map in Streamlit
 st_data = st_folium(m, width = 800)
