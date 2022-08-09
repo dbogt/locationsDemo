@@ -51,7 +51,7 @@ def drawMap(df1, df2, lat, long, radiusM):
   return m
 
 #Distance Calculations
-def distCoord(Lat_place_1, Lon_place_1, Lat_place_2, Lon_place_2)
+def distCoord(Lat_place_1, Lon_place_1, Lat_place_2, Lon_place_2):
   lat1 = radians(Lat_place_1) # same as * pi / 180
   lat2 = radians(Lat_place_2)
   lon1 = radians(Lon_place_1)
@@ -61,7 +61,7 @@ def distCoord(Lat_place_1, Lon_place_1, Lat_place_2, Lon_place_2)
   distNM = acos(sin(lat1) * sin(lat2) + cos(lat1) * cost(lat2) * cost(lon2 - lon1)) * 3443.8985
   return distNM
 
-def distCoordKM(lat1, lon1, lat2, lon2)
+def distCoordKM(lat1, lon1, lat2, lon2):
     distKM = distCoord(lat1, lon1, lat2, lon2) * 1.852
   return distKM
 
