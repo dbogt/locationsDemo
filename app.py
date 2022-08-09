@@ -62,7 +62,7 @@ def distCoord(Lat_place_1, Lon_place_1, Lat_place_2, Lon_place_2):
   return distNM
 
 def distCoordKM(lat1, lon1, lat2, lon2):
-    distKM = distCoord(lat1, lon1, lat2, lon2) * 1.852
+  distKM = distCoord(lat1, lon1, lat2, lon2) * 1.852
   return distKM
 
 st.title("Gas Station Locations")
