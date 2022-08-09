@@ -23,11 +23,14 @@ This app is a demo of how Python could be used to augment a ficticious M&A deal:
 - If Couche-Tard and Shell were to merge, the investment banking analyts working on the deal would try to find gas stations of the competing brands that are close to each other
 - Gas stations close in proximity are potential targets for closures to create cost synergies 
 
+
 How to use the app:
 - Pick a Couche-Tard and Shell gas station (use the defaults as a starting point)
 - The app will first calculate the distance in km between the 2 picked locations
 - Pick which of the two stations to analyze and the radius proximity (in metres, default set to 2.5km)
 - The app will then plot a radius of the chosen distance and filter out all the gas stations within that radius
+
+At the bottom of the app you can also find all the locations, sorted by distance to the picked gas station.
 
 Short link: https://bit.ly/locationsDemo
 """
