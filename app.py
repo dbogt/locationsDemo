@@ -70,8 +70,8 @@ st.title("Gas Station Locations")
 station = st.selectbox("Pick a gas station to analyze", sorted(df2['address'].unique()))
 station2 = st.selectbox("Pick a second gas station to analyze", sorted(df2['address'].unique()))
 number = st.number_input('Insert a radius (m)', value=1000)
-pickedLat = df2[df2['address']==station]['latitude']
-pickedLong = df2[df2['address']==station]['longitude']
+pickedLat = float(df2[df2['address']==station]['latitude'])
+pickedLong = float(df2[df2['address']==station]['longitude'])
 pickedLat2 = df2[df2['address']==station2]['latitude']
 pickedLong2 = df2[df2['address']==station2]['longitude']
 
