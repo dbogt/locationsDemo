@@ -82,7 +82,9 @@ city = df2[df2['address']==station]['city']
 
 st.write(df2[df2['address']==station])
 st.write(df2[df2['address']==station2])
-st.write("Gas Station 1: {} \nLat:{}\nLon:{}".format(station, pickedLat, pickedLong))
+st.write("""Gas Station 1: {}
+            Lat:{}
+            Lon:{}""".format(station, pickedLat, pickedLong))
 st.write("Gas Station 2: {} \nLat:{}\nLon:{}".format(station2, pickedLat2, pickedLong2))
 distKM = distCoordKM(pickedLat, pickedLong, pickedLat2, pickedLong2)
 st.write("Distance in KM: {:,.2f}".format(distKM))
