@@ -73,8 +73,6 @@ cLocs = list(df2['address'].unique()) #list of couche-tard locations
 sLocs = list(df1['name'].unique()) #list of shell locations
 idx1 = cLocs.index('2742 HIGHWAY 325')
 idx2 = sLocs.index('CORP-LAHAVE ST')
-st.write(idx1)
-st.write(idx2)
 station = st.selectbox("Pick a Couche-Tard gas station to analyze", cLocs, index=idx1, help="Try: 2742 HIGHWAY 325")
 station2 = st.selectbox("Pick a Shell gas station to analyze", sLocs, index=idx2, help="Try: CORP-LAHAVE ST")
 
@@ -123,6 +121,7 @@ st.write(df1[df1['Distance KM']<=radiusKM])
 m = drawMap(df1, df2, lat, lon, radius)
 
 
+st.write("Blue markers are Couche-Tard gas station and red markers are Shell gas stations.")
 # call to render Folium map in Streamlit
 st_data = st_folium(m, width = 800)
 
