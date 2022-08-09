@@ -58,7 +58,7 @@ def distCoord(Lat_place_1, Lon_place_1, Lat_place_2, Lon_place_2):
   lon2 = radians(Lon_place_2)
   piNum = pi
   #distance in nautical miles
-  distNM = acos(sin(lat1) * sin(lat2) + cos(lat1) * cost(lat2) * cost(lon2 - lon1)) * 3443.8985
+  distNM = acos(sin(lat1) * sin(lat2) + cos(lat1) * cos(lat2) * cos(lon2 - lon1)) * 3443.8985
   return distNM
 
 def distCoordKM(lat1, lon1, lat2, lon2):
