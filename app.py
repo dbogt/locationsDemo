@@ -3,7 +3,7 @@ import folium
 import pandas as pd
 import streamlit as st
 from streamlit_folium import st_folium
-from math import pi, acos, sin, cos, sqrt, atan2, radians
+from math import acos, sin, cos, radians
 
 #%% Streamlit Controls
 st.set_page_config(layout="wide",page_title='Locations Finder',
