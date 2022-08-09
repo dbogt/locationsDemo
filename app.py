@@ -94,8 +94,8 @@ else:
   lat = pickedLat2
   lon = pickedLong2
 
-df1['Distance KM'] = df1.apply(lambda x: distCoordKM(lat, long, x['lat'], x['lng']), axis=1)
-df2['Distance KM'] = df2.apply(lambda x: distCoordKM(lat, long, x['latitude'], x['longitude']), axis=1)
+df1['Distance KM'] = df1.apply(lambda x: distCoordKM(lat, lon, x['lat'], x['lng']), axis=1)
+df2['Distance KM'] = df2.apply(lambda x: distCoordKM(lat, lon, x['latitude'], x['longitude']), axis=1)
 
 df1 = df1.sort_values('Distance KM')
 df2 = df2.sort_values('Distance KM')
