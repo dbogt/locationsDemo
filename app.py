@@ -154,7 +154,7 @@ st.write(df1[df1['Distance KM']<=radiusKM])
 m = drawMap(df1, df2, lat, lon, radius)
 
 
-st.write("Blue markers are Couche-Tard gas station and red markers are Shell gas stations.")
+st.write("Blue markers are Couche-Tard gas stations and red markers are Shell gas stations.")
 # call to render Folium map in Streamlit
 st_data = st_folium(m, width = 800)
 
