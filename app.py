@@ -99,10 +99,11 @@ df2['Distance KM'] = df2.apply(lambda x: distCoordKM(lat, lon, x['latitude'], x[
 
 df1 = df1.sort_values('Distance KM')
 df2 = df2.sort_values('Distance KM')
-cols = ['Distance KM'] + df1.columns[0:-1]
-df1 = df1[cols]
-cols = ['Distance KM'] + df2.columns[0:-1]
-df2 = df2[cols]
+cols = ['Distance KM'] + list(df1.columns[0:-1])
+st.write(cols)
+# df1 = df1[cols]
+# cols = ['Distance KM'] + df2.columns[0:-1]
+# df2 = df2[cols]
 
 
 radiusKM = radius / 1000
