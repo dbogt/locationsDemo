@@ -69,8 +69,8 @@ def distCoordKM(lat1, lon1, lat2, lon2):
 
 st.title("Gas Station Locations")
 
-station = st.selectbox("Pick a Couche-Tard gas station to analyze", df2['address'].unique())
-station2 = st.selectbox("Pick a Shell gas station to analyze", df1['name'].unique())
+station = st.selectbox("Pick a Couche-Tard gas station to analyze", df2['address'].unique(), help="Try: 2742 HIGHWAY 325")
+station2 = st.selectbox("Pick a Shell gas station to analyze", df1['name'].unique(), help="Try: CORP-LAHAVE ST")
 
 pickedLat = float(df2[df2['address']==station]['latitude'])
 pickedLong = float(df2[df2['address']==station]['longitude'])
