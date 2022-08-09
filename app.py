@@ -17,8 +17,10 @@ def grabDF2():
   df = pd.read_csv('locations2.csv')
   return df
 
-df1 = grabDF1()
-df2 = grabDF2()
+l1 = grabDF1()
+l2 = grabDF2()
+df1 = l1.copy()
+df2 = l2.copy()
 
 #Mapping
 def drawMap(df1, df2, lat, long, radiusM):
