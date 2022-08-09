@@ -69,16 +69,11 @@ st.title("Gas Station Locations")
 
 station = st.selectbox("Pick a Couche-Tard gas station to analyze", df2['address'].unique())
 station2 = st.selectbox("Pick a Shell gas station to analyze", df1['name'].unique())
-number = st.number_input('Insert a radius (metres)', value=2500)
+
 pickedLat = float(df2[df2['address']==station]['latitude'])
 pickedLong = float(df2[df2['address']==station]['longitude'])
 pickedLat2 = float(df1[df1['name']==station2]['lat'])
 pickedLong2 = float(df1[df1['name']==station2]['lng'])
-
-m = drawMap(df1, df2, pickedLat, pickedLong, number)
-city = df2[df2['address']==station]['city']
-# st.write("Station: {}".format(station))
-# st.write("City: {}".format(city))
 
 st.write("""Couche-Tarde Gas Station: {}  \n Lat: {}  \n Lon: {}""".format(station, pickedLat, pickedLong))
 st.write(df2[df2['address']==station])
@@ -87,11 +82,37 @@ st.write(df1[df1['name']==station2])
 distKM = distCoordKM(pickedLat, pickedLong, pickedLat2, pickedLong2)
 st.write("Distance between gas stations in KM: **{:,.2f}**".format(distKM))
 
+st.header("Find Closest Gas Stations")
+brand = st.radio("Pick the gas station to analyze", ('Couche-Tard', 'Shell'))
+radius = st.number_input('Insert a radius (metres)', value=2500)
+if brand == 'Couche-Tard':
+  mainStation = station
+  lat = pickedLat
+  lon = pickedLong
+else:
+  mainStation = station2
+  lat = pickedLat2
+  lon = pickedLong2
+
+df1['Distance KM'] = df1.apply(lambda x: distCoordKM(lat, long, x['lat'], x['lng']), axis=1)
+df2['Distance KM'] = df2.apply(lambda x: distCoordKM(lat, long, x['latitude'], x['longitude']), axis=1)
+
+df1 = df1.sort_values('Distance KM')
+df2 = df2.sort_values('Distance KM')
+radiusKM = radius / 1000
+st.write("Couche-Tard locations within radius:")
+st.write(df2[df2['Distance KM']<=radiusKM])
+st.write("Shell locations within radius:")
+st.write(df1[df1['Distance KM']<=radiusKM])
+
+m = drawMap(df1, df2, lat, lon, radius)
+
+
 # call to render Folium map in Streamlit
 st_data = st_folium(m, width = 800)
 
-st.header("Shell Locations")
+st.header("All Shell Locations")
 st.dataframe(df1)
 
-st.header("Couche-Tard Locations")
+st.header("All Couche-Tard Locations")
 st.dataframe(df2)
