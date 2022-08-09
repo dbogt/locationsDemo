@@ -81,10 +81,8 @@ city = df2[df2['address']==station]['city']
 # st.write("City: {}".format(city))
 
 st.write(df2[df2['address']==station])
-st.write(df2[df2['address']==station2])
-st.write("""Couche-Tarde Gas Station: {}  \n
-            Lat: {}  \n
-            Lon: {}""".format(station, pickedLat, pickedLong))
+st.write(df1[df1['name']==station2])
+st.write("""Couche-Tarde Gas Station: {}  \n Lat: {}  \n Lon: {}""".format(station, pickedLat, pickedLong))
 st.write("""Shell Gas Station: {}  \n
             Lat: {}  \n
             Lon: {}""".format(station2, pickedLat2, pickedLong2))
