@@ -77,12 +77,13 @@ pickedLong = float(df2[df2['address']==station]['longitude'])
 pickedLat2 = float(df1[df1['name']==station2]['lat'])
 pickedLong2 = float(df1[df1['name']==station2]['lng'])
 
-st.write("""Couche-Tarde Gas Station: {}  \n Lat: {}  \n Lon: {}""".format(station, pickedLat, pickedLong))
-st.write(df2[df2['address']==station])
-st.write("""Shell Gas Station: {}  \n Lat: {}  \n Long: {}""".format(station2, pickedLat2, pickedLong2))
-st.write(df1[df1['name']==station2])
 distKM = distCoordKM(pickedLat, pickedLong, pickedLat2, pickedLong2)
 st.write("Distance between gas stations in KM: **{:,.2f}**".format(distKM))
+
+st.write("""Couche-Tarde Gas Station: {}  \n Lat: {} Lon: {}""".format(station, pickedLat, pickedLong))
+st.write(df2[df2['address']==station])
+st.write("""Shell Gas Station: {}  \n Lat: {} Lon: {}""".format(station2, pickedLat2, pickedLong2))
+st.write(df1[df1['name']==station2])
 
 st.header("Find Closest Gas Stations")
 brand = st.radio("Pick the gas station to analyze", ('Couche-Tard', 'Shell'))
