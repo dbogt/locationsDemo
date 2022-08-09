@@ -67,13 +67,13 @@ def distCoordKM(lat1, lon1, lat2, lon2):
 
 st.title("Gas Station Locations")
 
-station = st.selectbox("Pick a gas station to analyze", sorted(df2['address'].unique()))
-station2 = st.selectbox("Pick a second gas station to analyze", sorted(df2['address'].unique()))
-number = st.number_input('Insert a radius (m)', value=1000)
+station = st.selectbox("Pick a Couche-Tard gas station to analyze", df2['address'].unique())
+station2 = st.selectbox("Pick a Shell gas station to analyze", df1['name'].unique())
+number = st.number_input('Insert a radius (metres)', value=2500)
 pickedLat = float(df2[df2['address']==station]['latitude'])
 pickedLong = float(df2[df2['address']==station]['longitude'])
-pickedLat2 = float(df2[df2['address']==station2]['latitude'])
-pickedLong2 = float(df2[df2['address']==station2]['longitude'])
+pickedLat2 = float(df1[df1['name']==station2]['lat'])
+pickedLong2 = float(df1[df1['name']==station2]['lng'])
 
 m = drawMap(df1, df2, pickedLat, pickedLong, number)
 city = df2[df2['address']==station]['city']
@@ -84,12 +84,14 @@ st.write(pickedLong)
 
 st.write(df2[df2['address']==station])
 st.write(df2[df2['address']==station2])
-st.write("""Gas Station 1: {}
-            Lat:{}
-            Lon:{}""".format(station, pickedLat, pickedLong))
-st.write("Gas Station 2: {} \nLat:{}\nLon:{}".format(station2, pickedLat2, pickedLong2))
+st.write("""Couche-Tarde Gas Station: {}</br>
+            Lat: {}</br>
+            Lon: {}""".format(station, pickedLat, pickedLong))
+st.write("""Shell Gas Station: {}</br>
+            Lat: {}</br>
+            Lon: {}""".format(station2, pickedLat2, pickedLong2))
 distKM = distCoordKM(pickedLat, pickedLong, pickedLat2, pickedLong2)
-st.write("Distance in KM: {:,.2f}".format(distKM))
+st.write("Distance between gas stations in KM: *{:,.2f}*".format(distKM))
 
 # call to render Folium map in Streamlit
 st_data = st_folium(m, width = 800)
