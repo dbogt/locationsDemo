@@ -75,7 +75,7 @@ idx1 = cLocs.index('2742 HIGHWAY 325')
 idx2 = sLocs.index('CORP-LAHAVE ST')
 st.write(idx1)
 st.write(idx2)
-station = st.selectbox("Pick a Couche-Tard gas station to analyze", cLocs, index=idx1 help="Try: 2742 HIGHWAY 325")
+station = st.selectbox("Pick a Couche-Tard gas station to analyze", cLocs, index=idx1, help="Try: 2742 HIGHWAY 325")
 station2 = st.selectbox("Pick a Shell gas station to analyze", sLocs, index=idx2, help="Try: CORP-LAHAVE ST")
 
 pickedLat = float(df2[df2['address']==station]['latitude'])
