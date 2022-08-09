@@ -79,8 +79,8 @@ m = drawMap(df1, df2, pickedLat, pickedLong, number)
 city = df2[df2['address']==station]['city']
 # st.write("Station: {}".format(station))
 # st.write("City: {}".format(city))
-st.write(pcikedLat)
-st.write(pcikedLong)
+st.write(pickedLat)
+st.write(pickedLong)
 
 st.write(df2[df2['address']==station])
 st.write(df2[df2['address']==station2])
