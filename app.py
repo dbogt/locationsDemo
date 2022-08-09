@@ -80,12 +80,10 @@ city = df2[df2['address']==station]['city']
 # st.write("Station: {}".format(station))
 # st.write("City: {}".format(city))
 
-st.write(df2[df2['address']==station])
-st.write(df1[df1['name']==station2])
 st.write("""Couche-Tarde Gas Station: {}  \n Lat: {}  \n Lon: {}""".format(station, pickedLat, pickedLong))
-st.write("""Shell Gas Station: {}  \n
-            Lat: {}  \n
-            Lon: {}""".format(station2, pickedLat2, pickedLong2))
+st.write(df2[df2['address']==station])
+st.write("""Shell Gas Station: {}  \n Lat: {}  \n Long: {}""".format(station2, pickedLat2, pickedLong2))
+st.write(df1[df1['name']==station2])
 distKM = distCoordKM(pickedLat, pickedLong, pickedLat2, pickedLong2)
 st.write("Distance between gas stations in KM: **{:,.2f}**".format(distKM))
 
